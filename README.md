@@ -12,6 +12,13 @@ sudo apt install -y \
 	redis-tools sqlite3 libsqlite3-0 mysql-client libmysqlclient-dev
 ```
 
+### Tailscale
+
+```
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+```
+
 ### Atuin
 
 ```
