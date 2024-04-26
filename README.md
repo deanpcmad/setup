@@ -12,6 +12,14 @@ sudo apt install -y \
 	redis-tools sqlite3 libsqlite3-0 mysql-client libmysqlclient-dev
 ```
 
+### Atuin
+
+```
+bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
+mkdir -p ~/.config/atuin
+echo 'sync_address = "https://atuin.d34n.uk"' >> ~/.config/atuin/config.toml
+```
+
 ### Docker
 
 ```
@@ -19,14 +27,24 @@ curl -fsSL https://get.docker.com | sh
 sudo usermod -aG docker dean
 ```
 
+### rbenv
+
+```
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
+echo 'bundler' >> ~/.default-gems
+```
+
 ### Fish
 
 ```
 sudo apt install -y fish
 chsh dean -s /usr/bin/fish
-
+mkdir -p ~/.config/fish
+wget https://github.com/deanpcmad/ubuntu/raw/main/config.fish -O ~/.config/fish/config.fish
+fish
 ```
-
 
 ### Apps 
 
@@ -50,11 +68,6 @@ cd -
 ### Ruby
 
 ```
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-
-echo 'eval "$(/usr/bin/rbenv init - bash)"' >> ~/.bashrc
-source ~/.bashrc
-git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 rbenv install 3.3.0
 rbenv global 3.3.0
 ```
