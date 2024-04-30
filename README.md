@@ -70,7 +70,7 @@ asdf global nodejs 20.11.1
 ### Apps 
 
 ```
-sudo snap install spotify vlc discord
+sudo snap install spotify vlc discord nextcloud-desktop-client
 ```
 
 ### 1Password
