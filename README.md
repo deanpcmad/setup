@@ -103,7 +103,14 @@ sudo apt update && sudo apt install -y code
 
 ```
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install -y ./google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+```
+
+### Obsidian
+
+```
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.12/obsidian_1.5.12_amd64.deb
+sudo apt install ./obsidian_1.5.12_amd64.deb
 ```
 
 ### Kopia
