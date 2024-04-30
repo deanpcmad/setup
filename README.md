@@ -5,7 +5,7 @@
 ```
 sudo apt update -y
 sudo apt install -y \
-	git curl wget gpg htop btop \
+	git curl wget gpg htop btop unzip \
 	build-essential pkg-config autoconf bison rustc cargo clang \
 	libssl-dev libreadline-dev zlib1g-dev libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev libjemalloc2 \
 	libvips imagemagick libmagickwand-dev \
@@ -65,6 +65,14 @@ asdf global ruby 3.3.1
 asdf plugin add nodejs
 asdf install nodejs 20.11.1
 asdf global nodejs 20.11.1
+```
+
+### AWS
+
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 ```
 
 ### Apps 
