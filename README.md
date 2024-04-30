@@ -5,7 +5,7 @@
 ```
 sudo apt update -y
 sudo apt install -y \
-	git curl wget htop btop \
+	git curl wget gpg htop btop \
 	build-essential pkg-config autoconf bison rustc cargo clang \
 	libssl-dev libreadline-dev zlib1g-dev libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev libjemalloc2 \
 	libvips imagemagick libmagickwand-dev \
@@ -34,13 +34,10 @@ curl -fsSL https://get.docker.com | sh
 sudo usermod -aG docker dean
 ```
 
-### rbenv
+### asdf install
 
 ```
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
-echo 'bundler' >> ~/.default-gems
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
 ```
 
 ### Fish
@@ -50,33 +47,66 @@ sudo apt install -y fish
 chsh dean -s /usr/bin/fish
 mkdir -p ~/.config/fish
 wget https://github.com/deanpcmad/ubuntu/raw/main/config.fish -O ~/.config/fish/config.fish
+mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 fish
-```
-
-### Apps 
-
-```
-sudo snap install 1password spotify vlc discord
-```
-
-### debs
-
-```
-cd ~/Downloads
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome-stable_current_amd64.deb
-
-wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/e170252f762678dec6ca2cc69aba1570769a5d39/code_1.88.1-1712771838_amd64.deb
-sudo apt install ./code_1.88.1-1712771838_amd64.deb
-
-cd -
 ```
 
 ### Ruby
 
 ```
-rbenv install 3.3.0
-rbenv global 3.3.0
+asdf plugin add ruby
+asdf install ruby 3.3.1
+asdf global ruby 3.3.1
+```
+
+### Node
+
+```
+asdf plugin add nodejs
+asdf install nodejs 20.11.1
+asdf global nodejs 20.11.1
+```
+
+### Apps 
+
+```
+sudo snap install spotify vlc discord
+```
+
+### 1Password
+
+```
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
+
+sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+
+sudo apt update && sudo apt install 1password
+```
+
+### VSCode
+
+```
+sudo apt-get install wget gpg
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+rm -f packages.microsoft.gpg
+
+sudo apt update && sudo apt install code -y 
+```
+
+### Google Chrome
+
+```
+cd ~/Downloads
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+cd -
 ```
 
 ### GitHub CLI
