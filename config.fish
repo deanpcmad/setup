@@ -4,12 +4,15 @@ if status is-interactive
   # Atuin
   atuin init fish | source
 
+  # ASDF
+  source ~/.asdf/asdf.fish
+
   # RBenv
-  ~/.rbenv/bin/rbenv init - fish | source
-  fish_add_path -m ~/.rbenv/shims/
+  #~/.rbenv/bin/rbenv init - fish | source
+  #fish_add_path -m ~/.rbenv/shims/
 
   # Add .local/bin to the PATH
-  fish_add_path -m ~/.local/bin/
+  #fish_add_path -m ~/.local/bin/
 
   # Rails
   alias be="bundle exec"
