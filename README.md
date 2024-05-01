@@ -34,6 +34,23 @@ curl -fsSL https://get.docker.com | sh
 sudo usermod -aG docker dean
 ```
 
+### Docker Hoster
+
+```
+sudo chmod dean:dean /opt
+cat << EOF >> /opt/docker-compose.yml
+services:
+  hoster:
+    image: dvdarias/docker-hoster
+    container_name: hoster
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock
+      - /etc/hosts:/tmp/hosts
+EOF
+docker compose -f /opt/docker-compose.yml up -d
+```
+
 ### asdf install
 
 ```
