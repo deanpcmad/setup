@@ -37,7 +37,7 @@ sudo usermod -aG docker dean
 ### Docker Hoster
 
 ```
-sudo chmod dean:dean /opt
+sudo chown dean:dean /opt
 cat << EOF >> /opt/docker-compose.yml
 services:
   hoster:
