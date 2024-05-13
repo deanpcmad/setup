@@ -2,6 +2,7 @@
 
 # Update sources to use GB mirror
 sudo sed -i 's/http:\/\/archive.ubuntu.com\/ubuntu/http:\/\/gb.archive.ubuntu.com\/ubuntu/g' /etc/apt/sources.list
+sudo sed -i 's/http:\/\/archive.ubuntu.com\/ubuntu/http:\/\/gb.archive.ubuntu.com\/ubuntu/g' /etc/apt/sources.list.d/ubuntu.sources
 
 # Update & Upgrade
 sudo apt update -y
