@@ -58,14 +58,13 @@ else
   wget https://github.com/deanpcmad/ubuntu/raw/main/config.fish -O ~/.config/fish/config.fish
   mkdir -p ~/.config/fish/completions
   ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
-  fish
 fi
 
 # if asdf is installed
 if command -v asdf &> /dev/null
 then
-  asdf plugin add ruby
-  asdf plugin add nodejs
+  ~/.asdf/bin/asdf plugin add ruby
+  ~/.asdf/bin/asdf plugin add nodejs
 fi
 
 # AWS CLI
@@ -79,9 +78,9 @@ fi
 # GitHub CLI
 if ! command -v gh &> /dev/null
 then
-  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-  && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-  && sudo apt update \
-  && sudo apt install gh -y
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+  sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+  sudo apt update
+  sudo apt install gh -y
 fi
