@@ -37,7 +37,7 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock
       - /etc/hosts:/tmp/hosts
 EOF
-docker compose -f /opt/docker-compose.yml up -d
+sudo docker compose -f /opt/docker-compose.yml up -d
 
 # asdf install
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
