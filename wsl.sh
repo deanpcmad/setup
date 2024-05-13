@@ -19,7 +19,7 @@ sudo apt install -y \
 curl -fsSL https://tailscale.com/install.sh | sh
 
 # Atuin
-bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
+#bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
 
 # Docker
 curl -fsSL https://get.docker.com | sh
