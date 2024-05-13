@@ -54,7 +54,6 @@ if [ -f ~/.config/fish/config.fish ]
 then
   echo "Fish config already exists"
 else
-  chsh dean -s /usr/bin/fish
   mkdir -p ~/.config/fish
   wget https://github.com/deanpcmad/ubuntu/raw/main/config.fish -O ~/.config/fish/config.fish
   mkdir -p ~/.config/fish/completions

@@ -6,7 +6,12 @@
 wget -q -O - https://raw.githubusercontent.com/deanpcmad/ubuntu/main/wsl.sh | bash
 ```
 
-After running the above command, login to Tailscale: `sudo tailscale up`
+After running the above command:
+
+```
+chsh dean -s /usr/bin/fish
+sudo tailscale up
+```
 
 ### CLI
 
