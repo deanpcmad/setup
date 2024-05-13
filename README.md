@@ -1,5 +1,13 @@
 # Ubuntu Install
 
+## WSL
+
+```
+wget -q -O - https://raw.githubusercontent.com/deanpcmad/ubuntu/main/wsl.sh | bash
+```
+
+After running the above command, login to Tailscale: `sudo tailscale up`
+
 ### CLI
 
 ```
@@ -92,7 +100,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 ```
 
-### Apps 
+### Apps
 
 ```
 sudo snap install spotify vlc discord nextcloud-desktop-client
