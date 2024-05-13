@@ -16,58 +16,82 @@ sudo apt install -y \
 	redis-tools sqlite3 libsqlite3-0 mysql-client libmysqlclient-dev
 
 # Tailscale
-curl -fsSL https://tailscale.com/install.sh | sh
+if ! command -v tailscale &> /dev/null
+then
+  curl -fsSL https://tailscale.com/install.sh | sh
+fi
 
 # Atuin
 #bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
 
 # Docker
-curl -fsSL https://get.docker.com | sh
-sudo usermod -aG docker dean
+# check if docker is already installed
+if ! command -v docker &> /dev/null
+then
+  # install docker
+  curl -fsSL https://get.docker.com | sh
+  sudo usermod -aG docker dean
+fi
 
 # Docker Hoster
-sudo chown dean:dean /opt
-cat << EOF >> /opt/docker-compose.yml
-services:
-  hoster:
-    image: dvdarias/docker-hoster
-    container_name: hoster
-    restart: always
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock
-      - /etc/hosts:/tmp/hosts
-EOF
-sudo docker compose -f /opt/docker-compose.yml up -d
+# check if file exists
+if [ -f /opt/docker-compose.yml ]
+then
+  echo "Docker Hoster already installed"
+else
+  sudo chown dean:dean /opt
+  cat << EOF >> /opt/docker-compose.yml
+  services:
+    hoster:
+      image: dvdarias/docker-hoster
+      container_name: hoster
+      restart: always
+      volumes:
+        - /var/run/docker.sock:/tmp/docker.sock
+        - /etc/hosts:/tmp/hosts
+  EOF
+fi
 
 # asdf install
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+if [ ! -d ~/.asdf ]
+then
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+fi
 
 # Fish
-chsh dean -s /usr/bin/fish
-mkdir -p ~/.config/fish
-wget https://github.com/deanpcmad/ubuntu/raw/main/config.fish -O ~/.config/fish/config.fish
-mkdir -p ~/.config/fish/completions
-ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
-fish
+if [ -f ~/.config/fish/config.fish ]
+then
+  echo "Fish config already exists"
+else
+  chsh dean -s /usr/bin/fish
+  mkdir -p ~/.config/fish
+  wget https://github.com/deanpcmad/ubuntu/raw/main/config.fish -O ~/.config/fish/config.fish
+  mkdir -p ~/.config/fish/completions
+  ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+  fish
+fi
 
-# Ruby
-asdf plugin add ruby
-asdf install ruby 3.3.1
-asdf global ruby 3.3.1
-
-# Node
-asdf plugin add nodejs
-asdf install nodejs 20.11.1
-asdf global nodejs 20.11.1
+# if asdf is installed
+if command -v asdf &> /dev/null
+then
+  asdf plugin add ruby
+  asdf plugin add nodejs
+fi
 
 # AWS CLI
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+if ! command -v aws &> /dev/null
+then
+  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  unzip awscliv2.zip
+  sudo ./aws/install
+fi
 
 # GitHub CLI
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-&& sudo apt update \
-&& sudo apt install gh -y \
+if ! command -v gh &> /dev/null
+then
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+  && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+  && sudo apt update \
+  && sudo apt install gh -y
+fi
