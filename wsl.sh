@@ -50,9 +50,10 @@ else
   ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 fi
 
-# if asdf is installed
 if command -v asdf &> /dev/null
 then
+  echo "asdf already installed"
+else
   ~/.asdf/bin/asdf plugin add ruby
   ~/.asdf/bin/asdf plugin add nodejs
 fi
@@ -60,6 +61,8 @@ fi
 # AWS CLI
 if ! command -v aws &> /dev/null
 then
+  echo "AWS CLI already installed"
+else
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
   unzip awscliv2.zip
   sudo ./aws/install
@@ -68,6 +71,8 @@ fi
 # GitHub CLI
 if ! command -v gh &> /dev/null
 then
+  echo "GitHub CLI already installed"
+else
   curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
   sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
