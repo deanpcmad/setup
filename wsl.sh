@@ -20,8 +20,6 @@ curl -fsSL https://tailscale.com/install.sh | sh
 
 # Atuin
 bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
-mkdir -p ~/.config/atuin
-echo 'sync_address = "https://atuin.d34n.uk"' >> ~/.config/atuin/config.toml
 
 # Docker
 curl -fsSL https://get.docker.com | sh
@@ -48,7 +46,8 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
 chsh dean -s /usr/bin/fish
 mkdir -p ~/.config/fish
 wget https://github.com/deanpcmad/ubuntu/raw/main/config.fish -O ~/.config/fish/config.fish
-mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+mkdir -p ~/.config/fish/completions
+ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 fish
 
 # Ruby
