@@ -40,16 +40,7 @@ then
   echo "Docker Hoster already installed"
 else
   sudo chown dean:dean /opt
-  cat << EOF >> /opt/docker-compose.yml
-  services:
-    hoster:
-      image: dvdarias/docker-hoster
-      container_name: hoster
-      restart: always
-      volumes:
-        - /var/run/docker.sock:/tmp/docker.sock
-        - /etc/hosts:/tmp/hosts
-  EOF
+  wget https://github.com/deanpcmad/ubuntu/raw/main/docker-compose.yml -O /opt/docker-compose.yml
 fi
 
 # asdf install

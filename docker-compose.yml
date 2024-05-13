@@ -1,0 +1,8 @@
+services:
+  hoster:
+    image: dvdarias/docker-hoster
+    container_name: hoster
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock
+      - /etc/hosts:/tmp/hosts
