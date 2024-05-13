@@ -24,17 +24,7 @@ fi
 # Atuin
 #bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
 
-# Docker
-# check if docker is already installed
-if ! command -v docker &> /dev/null
-then
-  # install docker
-  curl -fsSL https://get.docker.com | sh
-  sudo usermod -aG docker dean
-fi
-
 # Docker Hoster
-# check if file exists
 if [ -f /opt/docker-compose.yml ]
 then
   echo "Docker Hoster already installed"

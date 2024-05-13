@@ -2,6 +2,8 @@
 
 ## WSL
 
+Install Docker Desktop for Windows and enable WSL2.
+
 ```
 wget -q -O - https://raw.githubusercontent.com/deanpcmad/ubuntu/main/wsl.sh | bash
 ```
@@ -10,7 +12,9 @@ After running the above command:
 
 ```
 chsh dean -s /usr/bin/fish
+fish
 sudo tailscale up
+docker compose -f /opt/docker-compose.yml up -d
 ```
 
 ### CLI
