@@ -20,7 +20,7 @@ sudo apt install -y \
 #bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
 
 # Docker
-if command -v docker &> /dev/null
+if ! command -v docker &> /dev/null
 then
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
   echo \
