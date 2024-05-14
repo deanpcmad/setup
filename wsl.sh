@@ -17,7 +17,7 @@ sudo apt install -y \
 	redis-tools sqlite3 libsqlite3-0 mysql-client libmysqlclient-dev
 
 # Atuin
-#bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
+bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
 
 # Docker
 if ! command -v docker &> /dev/null

@@ -2,7 +2,7 @@ if status is-interactive
   # Commands to run in interactive sessions can go here
 
   # Atuin
-  # atuin init fish | source
+  atuin init fish | source
 
   # ASDF
   source ~/.asdf/asdf.fish
