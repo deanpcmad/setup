@@ -45,10 +45,12 @@ then
   ~/.asdf/bin/asdf plugin add ruby
   ~/.asdf/bin/asdf plugin add nodejs
 
+  echo ">> Installing Ruby 3.1.1"
   ~/.asdf/bin/asdf install ruby 3.3.1
-  ~/.asdf/bin/asdf install nodejs 20.11.1
-
   ~/.asdf/bin/asdf global ruby 3.3.1
+
+  echo ">> Installing NodeJS 20.11.1"
+  ~/.asdf/bin/asdf install nodejs 20.11.1
   ~/.asdf/bin/asdf global nodejs 20.11.1
 fi
 
@@ -84,6 +86,7 @@ then
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
   unzip awscliv2.zip
   sudo ./aws/install
+  rm -rf aws awscliv2.zip
 fi
 
 # 1Password & 1Password CLI
@@ -122,6 +125,7 @@ if ! command -v chrome &> /dev/null
 then
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   sudo dpkg -i google-chrome-stable_current_amd64.deb
+  rm -rf google-chrome-stable_current_amd64.deb
 fi
 
 # VSCode
@@ -134,11 +138,21 @@ then
   sudo apt update && sudo apt install -y code
 fi
 
+# Lazygit
+if ! command -v lazygit &> /dev/null
+  LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+  curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+  tar xf lazygit.tar.gz lazygit
+  sudo install lazygit /usr/local/bin
+fi
+
 # Obsidian
 if ! command -v obsidian &> /dev/null
 then
-  wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.12/obsidian_1.5.12_amd64.deb
-  sudo apt install -y ./obsidian_1.5.12_amd64.deb
+  OBSIDIAN_VERSION=$(curl -s "https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+  wget https://github.com/obsidianmd/obsidian-releases/releases/download/v${OBSIDIAN_VERSION}/obsidian_${OBSIDIAN_VERSION}_amd64.deb
+  sudo apt install -y ./obsidian_${OBSIDIAN_VERSION}_amd64.deb
+  rm -rf obsidian_${OBSIDIAN_VERSION}_amd64.deb
 fi
 
 # Kopia
