@@ -35,7 +35,12 @@ sudo snap install spotify discord
 
 Fix hotkeys in wayland: https://github.com/Ulauncher/Ulauncher/wiki/Hotkey-In-Wayland
 
-Change default terminal size
+Gnome Extensions:
+
+- https://extensions.gnome.org/extension/4548/tactile/
+- https://extensions.gnome.org/extension/6242/emoji-copy/
+
+Change default terminal size:
 
 ```
 PROFILE_ID=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'\n")
