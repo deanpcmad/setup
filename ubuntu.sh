@@ -43,7 +43,10 @@ fi
 
 
 # Atuin
-bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
+if ! command -v atuin &> /dev/null
+then
+  bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
+fi
 
 # Docker
 if ! command -v docker &> /dev/null
