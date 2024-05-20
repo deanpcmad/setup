@@ -121,7 +121,7 @@ then
 fi
 
 # Chrome
-if ! command -v chrome &> /dev/null
+if ! command -v google-chrome &> /dev/null
 then
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   sudo dpkg -i google-chrome-stable_current_amd64.deb
