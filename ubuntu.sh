@@ -13,8 +13,8 @@ sudo apt install -y \
 	git curl wget gpg htop btop unzip \
 	build-essential pkg-config autoconf bison rustc cargo clang \
 	libssl-dev libreadline-dev zlib1g-dev libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev libjemalloc2 \
-	libvips imagemagick libmagickwand-dev fish \
-	redis-tools sqlite3 libsqlite3-0 mysql-client libmysqlclient-dev
+	libvips imagemagick libmagickwand-dev fish vlc \
+	redis-tools sqlite3 libsqlite3-0 mysql-client libmysqlclient-dev 
 
 # Atuin
 bash <(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)
