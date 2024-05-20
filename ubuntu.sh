@@ -30,6 +30,8 @@ then
 fi
 
 if [ -f /opt/docker-compose.yml ]
+then
+  echo "docker-compose.yml exists"
 else
   sudo chown dean:dean /opt
   wget https://github.com/deanpcmad/ubuntu/raw/main/dotfiles/docker-compose.yml -O /opt/docker-compose.yml
@@ -62,12 +64,16 @@ else
 fi
 
 if [ -f ~/.gitconfig ]
+then
+  echo "gitconfig exists"
 else
   wget https://github.com/deanpcmad/ubuntu/raw/main/dotfiles/gitconfig -O ~/.gitconfig
   wget https://github.com/deanpcmad/ubuntu/raw/main/dotfiles/gitignore -O ~/.gitignore
 fi
 
 if [ -f ~/.gemrc ]
+then
+  echo "gemrc exists"
 else
   wget https://github.com/deanpcmad/ubuntu/raw/main/dotfiles/gemrc -O ~/.gemrc
 fi
