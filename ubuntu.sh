@@ -13,7 +13,7 @@ sudo apt install -y \
 	git curl wget gpg htop btop unzip \
 	build-essential pkg-config autoconf bison rustc cargo clang \
 	libssl-dev libreadline-dev zlib1g-dev libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev libjemalloc2 \
-	libvips imagemagick libmagickwand-dev fish vlc \
+	libvips imagemagick libmagickwand-dev fish vlc gnome-browser-connector \
 	redis-tools sqlite3 libsqlite3-0 mysql-client libmysqlclient-dev 
 
 # Atuin
