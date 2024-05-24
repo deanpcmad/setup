@@ -14,7 +14,7 @@ sudo apt install -y \
 	build-essential pkg-config autoconf bison rustc cargo clang \
 	libssl-dev libreadline-dev zlib1g-dev libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev libjemalloc2 \
 	libvips imagemagick libmagickwand-dev fish vlc gnome-browser-connector \
-	redis-tools sqlite3 libsqlite3-0 mysql-client libmysqlclient-dev 
+	redis-tools sqlite3 libsqlite3-0 libsqlite3-dev mysql-client libmysqlclient-dev
 
 # Google Chrome
 if ! command -v google-chrome &> /dev/null
