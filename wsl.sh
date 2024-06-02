@@ -35,7 +35,7 @@ then
   echo "Docker Hoster already installed"
 else
   sudo chown dean:dean /opt
-  wget https://github.com/deanpcmad/ubuntu/raw/main/docker-compose.yml -O /opt/docker-compose.yml
+  wget https://github.com/deanpcmad/setup/raw/main/dotfiles/docker-compose.yml -O /opt/docker-compose.yml
 fi
 
 # asdf install
@@ -50,7 +50,7 @@ then
   echo "Fish config already exists"
 else
   mkdir -p ~/.config/fish
-  wget https://github.com/deanpcmad/ubuntu/raw/main/config.fish -O ~/.config/fish/config.fish
+  wget https://github.com/deanpcmad/setup/raw/main/dotfiles/config.fish -O ~/.config/fish/config.fish
   mkdir -p ~/.config/fish/completions
   ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 fi
