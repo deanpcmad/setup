@@ -29,6 +29,7 @@ Other apps to install:
 - [Spotify](https://download.scdn.co/SpotifySetup.exe)
 - [Elgato Streamdeck](https://www.elgato.com/us/en/s/downloads)
 - [Cyberduck](https://cyberduck.io/download/)
+- [Cura](https://ultimaker.com/software/ultimaker-cura/)
 
 ### WSL
 
