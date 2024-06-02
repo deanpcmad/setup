@@ -51,6 +51,16 @@ sudo usermod -aG docker dean
 docker compose -f /opt/docker-compose.yml up -d
 ```
 
+### GPG
+
+```
+gpg --full-generate-key
+gpg --list-secret-keys --keyid-format=long
+gpg --armor --export KEY
+git config --global user.signingkey  KEY
+git config --global commit.gpgsign true
+```
+
 
 ## Ubuntu
 
