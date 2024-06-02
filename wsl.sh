@@ -59,6 +59,29 @@ if command -v asdf &> /dev/null
 then
   ~/.asdf/bin/asdf plugin add ruby
   ~/.asdf/bin/asdf plugin add nodejs
+
+  echo ">> Installing Ruby 3.3.2"
+  ~/.asdf/bin/asdf install ruby 3.3.2
+  ~/.asdf/bin/asdf global ruby 3.3.2
+
+  echo ">> Installing NodeJS 20.14.0"
+  ~/.asdf/bin/asdf install nodejs 20.14.0
+  ~/.asdf/bin/asdf global nodejs 20.14.0
+fi
+
+if [ -f ~/.gitconfig ]
+then
+  echo "gitconfig exists"
+else
+  wget https://github.com/deanpcmad/setup/raw/main/dotfiles/gitconfig -O ~/.gitconfig
+  wget https://github.com/deanpcmad/setup/raw/main/dotfiles/gitignore -O ~/.gitignore
+fi
+
+if [ -f ~/.gemrc ]
+then
+  echo "gemrc exists"
+else
+  wget https://github.com/deanpcmad/setup/raw/main/dotfiles/gemrc -O ~/.gemrc
 fi
 
 # AWS CLI
@@ -67,6 +90,15 @@ then
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
   unzip awscliv2.zip
   sudo ./aws/install
+fi
+
+# Lazygit
+if ! command -v lazygit &> /dev/null
+then
+  LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+  curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+  tar xf lazygit.tar.gz lazygit
+  sudo install lazygit /usr/local/bin
 fi
 
 # GitHub CLI
