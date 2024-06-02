@@ -1,6 +1,41 @@
-# Ubuntu Install
+# PC Setup
 
-## WSL
+## Windows
+
+# Dean Windows
+
+### Chris Titus Windows Util:
+
+```
+iwr -useb https://christitus.com/win | iex
+```
+
+Apps to select:
+
+- Chrome
+- Firefox
+- Discord
+- VS Code
+- Obsidian
+- Epic Games
+- Steam
+- PowerToys
+- ShareX
+- 1Password
+- NanaZip
+- Nextcloud Desktop
+- Tailscale
+
+Other apps to install:
+
+- [Spotify](https://download.scdn.co/SpotifySetup.exe)
+- [Elgato Streamdeck](https://www.elgato.com/us/en/s/downloads)
+
+### WSL
+
+```
+wsl --install -d "Ubuntu-24.04"
+```
 
 ```
 wget -q -O - https://raw.githubusercontent.com/deanpcmad/ubuntu/main/wsl.sh | bash
