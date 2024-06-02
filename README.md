@@ -38,7 +38,7 @@ wsl --install -d "Ubuntu-24.04"
 ```
 
 ```
-wget -q -O - https://raw.githubusercontent.com/deanpcmad/ubuntu/main/wsl.sh | bash
+wget -q -O - https://raw.githubusercontent.com/deanpcmad/setup/main/wsl.sh | bash
 ```
 
 After running the above command:
@@ -54,7 +54,7 @@ docker compose -f /opt/docker-compose.yml up -d
 ## Ubuntu
 
 ```bash
-wget -q -O - https://raw.githubusercontent.com/deanpcmad/ubuntu/main/ubuntu.sh | bash
+wget -q -O - https://raw.githubusercontent.com/deanpcmad/setup/main/ubuntu.sh | bash
 ```
 
 After install:
