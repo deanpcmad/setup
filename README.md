@@ -26,6 +26,7 @@ Apps to select:
 
 Other apps to install:
 
+- [Mullvad](https://mullvad.net/en/download/vpn/windows)
 - [Spotify](https://download.scdn.co/SpotifySetup.exe)
 - [Elgato Streamdeck](https://www.elgato.com/us/en/s/downloads)
 - [Cyberduck](https://cyberduck.io/download/)
