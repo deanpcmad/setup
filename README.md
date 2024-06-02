@@ -2,8 +2,6 @@
 
 ## Windows
 
-# Dean Windows
-
 ### Chris Titus Windows Util:
 
 ```
@@ -30,6 +28,7 @@ Other apps to install:
 
 - [Spotify](https://download.scdn.co/SpotifySetup.exe)
 - [Elgato Streamdeck](https://www.elgato.com/us/en/s/downloads)
+- [Cyberduck](https://cyberduck.io/download/)
 
 ### WSL
 
