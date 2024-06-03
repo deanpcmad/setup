@@ -42,6 +42,17 @@ fi
 if [ ! -d ~/.asdf ]
 then
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+
+  ~/.asdf/bin/asdf plugin add ruby
+  ~/.asdf/bin/asdf plugin add nodejs
+
+  echo ">> Installing Ruby 3.3.2"
+  ~/.asdf/bin/asdf install ruby 3.3.2
+  ~/.asdf/bin/asdf global ruby 3.3.2
+
+  echo ">> Installing NodeJS 20.14.0"
+  ~/.asdf/bin/asdf install nodejs 20.14.0
+  ~/.asdf/bin/asdf global nodejs 20.14.0
 fi
 
 # Fish
@@ -53,20 +64,6 @@ else
   wget https://github.com/deanpcmad/setup/raw/main/dotfiles/config.fish -O ~/.config/fish/config.fish
   mkdir -p ~/.config/fish/completions
   ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
-fi
-
-if command -v asdf &> /dev/null
-then
-  ~/.asdf/bin/asdf plugin add ruby
-  ~/.asdf/bin/asdf plugin add nodejs
-
-  echo ">> Installing Ruby 3.3.2"
-  ~/.asdf/bin/asdf install ruby 3.3.2
-  ~/.asdf/bin/asdf global ruby 3.3.2
-
-  echo ">> Installing NodeJS 20.14.0"
-  ~/.asdf/bin/asdf install nodejs 20.14.0
-  ~/.asdf/bin/asdf global nodejs 20.14.0
 fi
 
 if [ -f ~/.gitconfig ]
