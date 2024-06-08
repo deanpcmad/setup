@@ -32,6 +32,7 @@ Other apps to install:
 - [Elgato Streamdeck](https://www.elgato.com/us/en/s/downloads)
 - [Cyberduck](https://cyberduck.io/download/)
 - [Cura](https://ultimaker.com/software/ultimaker-cura/)
+- [Onboard Memory Manager](https://support.logi.com/hc/en-us/articles/6449584392215-Onboard-Memory-Manager) - For managing DPI on Logitech Mice without using their crappy GHub software
 
 ### WSL
 
